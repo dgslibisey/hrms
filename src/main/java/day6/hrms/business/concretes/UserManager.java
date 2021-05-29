@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import day6.hrms.business.abstracts.UserService;
+import day6.hrms.core.results.DataResult;
+import day6.hrms.core.results.SuccessDataResult;
 import day6.hrms.dataAccess.abstracts.UserDao;
 import day6.hrms.entities.concretes.User;
 
@@ -24,9 +26,9 @@ public class UserManager implements UserService {
 
 
 	@Override
-	public List<User> getAll() {
-		// TODO Auto-generated method stub
-		return this.userDao.findAll();
+	public DataResult<List<User>> getAll() {
+		return new SuccessDataResult<List<User>>
+		(this.userDao.findAll(), "Data listelendi");
 	}
 
 }

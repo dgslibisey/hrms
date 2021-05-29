@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import day6.hrms.business.abstracts.RoleService;
+import day6.hrms.core.results.DataResult;
 import day6.hrms.entities.concretes.Role;
 
 @RestController
@@ -25,7 +26,7 @@ public class RolesController {
 
 
 	@GetMapping("/getall")
-	public List<Role> getAll() {
+	public DataResult<List<Role>> getAll() {
 		return this.roleService.getAll();
 	}
 	
