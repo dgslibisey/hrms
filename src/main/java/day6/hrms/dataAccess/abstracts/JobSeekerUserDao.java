@@ -10,6 +10,7 @@ public interface JobSeekerUserDao extends JpaRepository<JobSeekerUser, Integer> 
 	JobSeekerUser findByNationalIdentity(String nationalIdentity);
 	
 	//Mail doğrulama için arama yapabilme
-	JobSeekerUser findByEmail(String mail);
+	JobSeekerUser findByEmail(String email);
+	JobSeekerUser findJobseekerByNationalId(String nationalId);
 
 }

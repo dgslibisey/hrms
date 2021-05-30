@@ -32,4 +32,7 @@ public class JobSeekerUser extends User {
     
     @Column(name="date_of_birth")
     private Date dateOfBirth;
+    
+	@Column(name = "is_verified", columnDefinition = "boolean default false")
+	private boolean isVerified = false;
 }

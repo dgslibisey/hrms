@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import day6.hrms.business.abstracts.JobPositionService;
-import day6.hrms.core.results.DataResult;
-import day6.hrms.core.results.Result;
+import day6.hrms.core.utilities.results.DataResult;
+import day6.hrms.core.utilities.results.Result;
 import day6.hrms.entities.concretes.JobPosition;
 
 @RestController

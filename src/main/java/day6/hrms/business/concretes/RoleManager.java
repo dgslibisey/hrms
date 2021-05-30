@@ -6,8 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import day6.hrms.business.abstracts.RoleService;
-import day6.hrms.core.results.DataResult;
-import day6.hrms.core.results.Result;
+import day6.hrms.core.utilities.results.DataResult;
+import day6.hrms.core.utilities.results.Result;
 import day6.hrms.dataAccess.abstracts.RoleDao;
 import day6.hrms.entities.concretes.Role;
 import lombok.Data;

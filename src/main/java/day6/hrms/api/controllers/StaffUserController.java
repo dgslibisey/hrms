@@ -7,26 +7,24 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import day6.hrms.business.abstracts.UserService;
+import day6.hrms.business.abstracts.StaffUserService;
 import day6.hrms.core.utilities.results.DataResult;
-import day6.hrms.entities.concretes.User;
+import day6.hrms.entities.concretes.StaffUser;
 
 @RestController
-@RequestMapping("/api/users")
-public class UsersController {
-	
-	private UserService userService;
+@RequestMapping("/api/staffuser")
+public class StaffUserController {
+
+	private StaffUserService staffUserService;
 	
 	@Autowired
-	public UsersController(UserService userService) {
+	public StaffUserController(StaffUserService staffUserService) {
 		super();
-		this.userService = userService;
-	}
-
-
-	@GetMapping("/getall")
-	public DataResult<List<User>> getAll() {
-		return this.userService.getAll();
+		this.staffUserService = staffUserService;
 	}
 	
+	@GetMapping("/getall")
+	public DataResult<List<StaffUser>> getAll(){
+		return this.staffUserService.getAll();
+	}
 }

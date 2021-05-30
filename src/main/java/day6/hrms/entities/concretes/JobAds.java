@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
@@ -31,11 +33,11 @@ public class JobAds {
     @Column(name="job_definition")
 	private String jobDefinition;
     
-    @Column(name="job_city")
-	private String jobCity;
-    
-    @Column(name="salary")
-	private int salary;
+	@Column(name = "salary_min")
+	private int salaryMin;
+	
+	@Column(name = "salary_max")
+	private int salaryMax;
     
     @Column(name="open_position")
 	private int openPosition;
@@ -48,5 +50,20 @@ public class JobAds {
     
     @Column(name="is_activated")
 	private boolean isActivated;
+    
+	@Column(name = "is_open")
+	private boolean isOpen;
+	
+	@ManyToOne
+	@JoinColumn(name = "id")
+	private JobPosition jobPosition;
+	
+	@ManyToOne
+	@JoinColumn(name = "user_id")
+	private EmployerUser employerUser;
+	
+	@ManyToOne
+	@JoinColumn(name = "city_id")
+	private City city;
 	
 }

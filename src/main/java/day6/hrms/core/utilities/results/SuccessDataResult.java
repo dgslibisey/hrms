@@ -1,8 +1,8 @@
-package day6.hrms.core.results;
+package day6.hrms.core.utilities.results;
 
 public class SuccessDataResult<T> extends DataResult<T> {
 
-	public SuccessDataResult(T data, String message) {
+	public SuccessDataResult(T data, boolean success, String message) {
 		super(data, true, message);
 	}
 

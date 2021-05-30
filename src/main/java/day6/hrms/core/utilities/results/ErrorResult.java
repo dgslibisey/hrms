@@ -1,13 +1,13 @@
-package day6.hrms.core.results;
+package day6.hrms.core.utilities.results;
 
-public class ErrorResult extends Result{
+public class ErrorResult extends Result {
 
 	public ErrorResult() {
 		super(false);
 	}
-	
+
 	public ErrorResult(String message) {
 		super(false, message);
 	}
-	
+
 }

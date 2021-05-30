@@ -6,65 +6,37 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import day6.hrms.business.abstracts.JobSeekerUserService;
-import day6.hrms.core.results.DataResult;
-import day6.hrms.core.results.ErrorResult;
-import day6.hrms.core.results.Result;
-import day6.hrms.core.results.SuccessDataResult;
-import day6.hrms.core.results.SuccessResult;
-import day6.hrms.core.validation.EMailValidationService;
+import day6.hrms.core.utilities.results.DataResult;
+import day6.hrms.core.utilities.results.Result;
+import day6.hrms.core.utilities.results.SuccessDataResult;
+import day6.hrms.core.utilities.results.SuccessResult;
 import day6.hrms.dataAccess.abstracts.JobSeekerUserDao;
-import day6.hrms.dataAccess.abstracts.UserDao;
 import day6.hrms.entities.concretes.JobSeekerUser;
 
 @Service
 public class JobSeekerUserManager implements JobSeekerUserService {
 
-	private JobSeekerUserDao jobSeekerUserDao;
-	private UserDao userDao;
-	private EMailValidationService eMailValidationService;
+	private JobSeekerUserDao jobseekerUserDao;
 
 	@Autowired
-	public JobSeekerUserManager(JobSeekerUserDao jobSeekerUserDao, UserDao userDao,
-			EMailValidationService eMailValidationService) {
+	public JobSeekerUserManager(JobSeekerUserDao jobseekerUserDao) {
 		super();
-		this.jobSeekerUserDao = jobSeekerUserDao;
-		this.userDao = userDao;
-		this.eMailValidationService = eMailValidationService;
+		this.jobseekerUserDao = jobseekerUserDao;
 	}
 
+	@Override
+	public Result add(JobSeekerUser jobseekerUser) {
+		this.jobseekerUserDao.save(jobseekerUser);
+      return new SuccessResult("Jobseeker has been added.");
+	}
+	
 	@Override
 	public DataResult<List<JobSeekerUser>> getAll() {
-
-		return new SuccessDataResult<List<JobSeekerUser>>(this.jobSeekerUserDao.findAll(), "Data listelendi");
+		return new SuccessDataResult<List<JobSeekerUser>>(this.jobseekerUserDao.findAll());
 	}
 
 	@Override
-	public Result add(JobSeekerUser jobSeekerUser) {
-
-		if (jobSeekerUser.getEmail() == null || jobSeekerUser.getPassword() == null
-				|| jobSeekerUser.getPasswordRepeat() == null || jobSeekerUser.getCreatedDate() == null
-				|| jobSeekerUser.getFirstName() == null || jobSeekerUser.getLastName() == null
-				|| jobSeekerUser.getNationalIdentity() == null || jobSeekerUser.getDateOfBirth() == null) {
-			return new ErrorResult("Tüm alanları doldurunuz");
-		}
-		// şifre tekrarı, uyuşmaması halinde uyarı
-		else if (!jobSeekerUser.getPassword().equals(jobSeekerUser.getPasswordRepeat())) {
-			return new ErrorResult("Şifreler uyumsuz");
-			// mail adresi kontrolü
-		} else if (userDao.findByEmail(jobSeekerUser.getEmail()) != null) {
-			return new ErrorResult(
-					"Bu mail adresi kullanılmaktadır, lütfen başka bir mail adresi ile kayıt oluşturunuz");
-		} else if (jobSeekerUserDao.findByNationalIdentity(jobSeekerUser.getNationalIdentity()) != null) {
-			return new ErrorResult("Bu TC Kimlik No'ya ait kayıt bulunmaktadır");
-		} else {
-
-			if (eMailValidationService.sendMail(jobSeekerUser)) {
-				jobSeekerUserDao.save(jobSeekerUser);
-				return new SuccessResult("İş arayan kullanıcı kaydı oluşturuldu, doğrulama için e-posta gönderildi.");
-			} else {
-				return new ErrorResult("Doğrulamada hata oluştu, kayıt gerçekleştirilemedi");
-			}
-
-		}
+	public DataResult<JobSeekerUser> getJobseekerByNationalId(String nationalId) {
+		return new SuccessDataResult<JobSeekerUser>(this.jobseekerUserDao.findJobseekerByNationalId(nationalId));
 	}
 }
