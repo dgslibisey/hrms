@@ -40,4 +40,29 @@ public class EmployerUser extends User {
 	@Column(name = "is_verified", columnDefinition = "boolean default false")
 	private boolean isVerified = false;
 
+	public String getEmail() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public String getPassword() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public String getWebsite() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public String getPhoneNumber() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public  String getCompanyName() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }
