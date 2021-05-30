@@ -4,5 +4,5 @@ import day6.hrms.entities.concretes.User;
 
 public interface MernisValidationService {
 
-	public boolean IsMernisValidated(User user)
+	public boolean IsMernisValidated(User user);
 }

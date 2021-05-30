@@ -2,6 +2,7 @@ package day6.hrms.api.controllers;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,6 +19,7 @@ public class JobSeekerUserController {
 
 	private JobSeekerUserService jobSeekerUserService;
 
+	@Autowired
 	public JobSeekerUserController(JobSeekerUserService jobSeekerUserService) {
 		super();
 		this.jobSeekerUserService = jobSeekerUserService;

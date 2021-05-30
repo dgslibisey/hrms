@@ -6,10 +6,10 @@ import day6.hrms.entities.concretes.JobSeekerUser;
 
 public interface JobSeekerUserDao extends JpaRepository<JobSeekerUser, Integer> {
 	
-	JobSeekerUser findByName(String firstName);
+	JobSeekerUser findByFirstName(String firstName);
 	JobSeekerUser findByNationalIdentity(String nationalIdentity);
 	
 	//Mail doğrulama için arama yapabilme
-	JobSeekerUser findByemail(String mail);
+	JobSeekerUser findByEmail(String mail);
 
 }

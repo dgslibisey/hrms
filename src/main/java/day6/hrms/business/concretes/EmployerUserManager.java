@@ -23,9 +23,7 @@ public class EmployerUserManager implements EmployerUserService {
 
 	private EmployerUserDao employerUserDao;
 	private UserDao userDao;
-	@Autowired
 	private EMailValidationService eMailValidationService;
-	@Autowired
 	private StaffValidationService staffValidationService;
 
 	@Autowired
@@ -65,7 +63,7 @@ public class EmployerUserManager implements EmployerUserService {
 			return new ErrorResult("Mail adresiniz web sitenizin domain adresi ile aynı olmalıdır");
 		}
 		// mail adresi
-		else if (userDao.findByemail(employerUser.getEmail()) != null) {
+		else if (userDao.findByEmail(employerUser.getEmail()) != null) {
 			return new ErrorResult(
 					"Bu e-posta adresi kullanılmaktadır, başka bir e-posta adresi ile kayıt oluşturmayı deneyiniz");
 		} else {

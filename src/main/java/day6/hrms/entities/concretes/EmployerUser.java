@@ -18,6 +18,12 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 
 public class EmployerUser extends User {
+	
+	@Column(name="user_id")
+	private int id;
+	
+	@Column(name= "first_name")
+	private String name;
 
 	@Column(name= "company_name")
 	private String companyName;
@@ -28,9 +34,5 @@ public class EmployerUser extends User {
 	@Column(name="phone_number")
 	private String phoneNumber;
 
-	public Object getPasswordRepeat() {
-		// TODO Auto-generated method stub
-		return null;
-	}
 	
 }

@@ -15,11 +15,9 @@ import day6.hrms.core.validation.EMailValidationService;
 import day6.hrms.dataAccess.abstracts.JobSeekerUserDao;
 import day6.hrms.dataAccess.abstracts.UserDao;
 import day6.hrms.entities.concretes.JobSeekerUser;
-import lombok.Data;
 
-@Data
 @Service
-public class JobSeekerUserManager<getNationalIdentity> implements JobSeekerUserService {
+public class JobSeekerUserManager implements JobSeekerUserService {
 
 	private JobSeekerUserDao jobSeekerUserDao;
 	private UserDao userDao;
@@ -53,7 +51,7 @@ public class JobSeekerUserManager<getNationalIdentity> implements JobSeekerUserS
 		else if (!jobSeekerUser.getPassword().equals(jobSeekerUser.getPasswordRepeat())) {
 			return new ErrorResult("Şifreler uyumsuz");
 			// mail adresi kontrolü
-		} else if (userDao.findByemail(jobSeekerUser.getEmail()) != null) {
+		} else if (userDao.findByEmail(jobSeekerUser.getEmail()) != null) {
 			return new ErrorResult(
 					"Bu mail adresi kullanılmaktadır, lütfen başka bir mail adresi ile kayıt oluşturunuz");
 		} else if (jobSeekerUserDao.findByNationalIdentity(jobSeekerUser.getNationalIdentity()) != null) {

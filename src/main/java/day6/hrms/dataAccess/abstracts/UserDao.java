@@ -6,6 +6,6 @@ import day6.hrms.entities.concretes.User;
 
 public interface UserDao extends JpaRepository<User, Integer> {
 
-	User findByemail(String mail);
+	User findByEmail(String mail);
 	//Mail doğrulama için arama yapabilme
 }
