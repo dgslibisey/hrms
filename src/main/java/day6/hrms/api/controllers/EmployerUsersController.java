@@ -16,25 +16,34 @@ import day6.hrms.entities.concretes.EmployerUser;
 
 @RestController
 @RequestMapping("/api/employerusers")
-public class EmployerUserController {
+public class EmployerUsersController {
 
 	private EmployerUserService employerUserService;
-	
+
 	@Autowired
-	public EmployerUserController(EmployerUserService employerUserService) {
+	public EmployerUsersController(EmployerUserService employerUserService) {
 		super();
 		this.employerUserService = employerUserService;
-		
+
 	}
-	
+
 	@GetMapping("/getall")
 	public DataResult<List<EmployerUser>> getAll() {
 		return this.employerUserService.getAll();
 	}
-	
+
 	@PostMapping("/add")
 	public Result add(@RequestBody EmployerUser employerUser) {
 		return this.employerUserService.add(employerUser);
 	}
-	
+
+	@GetMapping("/findEmployerByCompanyName")
+	DataResult<EmployerUser> findEmployerByCompanyName(String companyName) {
+		return this.findEmployerByCompanyName(companyName);
+	};
+
+	@GetMapping("/getEmployerById")
+	DataResult<EmployerUser> getEmployerById(int id){
+		return this.getEmployerById(id);
+	};
 }

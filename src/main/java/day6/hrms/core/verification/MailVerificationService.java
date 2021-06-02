@@ -1,7 +1,6 @@
 package day6.hrms.core.verification;
 
-public interface VerificationService {
+public interface MailVerificationService {
 	void sendLink(String email);
-
 	String sendCode();
 }

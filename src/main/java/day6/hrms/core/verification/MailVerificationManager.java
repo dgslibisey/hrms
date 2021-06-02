@@ -2,7 +2,7 @@ package day6.hrms.core.verification;
 
 import java.util.UUID;
 
-public class VerificationManager implements VerificationService {
+public class MailVerificationManager implements MailVerificationService {
 
 	@Override
 	public void sendLink(String email) {
