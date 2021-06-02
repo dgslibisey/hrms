@@ -20,18 +20,29 @@ public class EmployerUserManager implements EmployerUserService {
 
 	@Autowired
 	public EmployerUserManager(EmployerUserDao employerUserDao) {
+		super();
 		this.employerUserDao = employerUserDao;
-	}
-
-	@Override
-	public Result add(EmployerUser employer) {
-		this.employerUserDao.save(employer);
-        return new SuccessResult("Employer has been added.");
 	}
 
 	@Override
 	public DataResult<List<EmployerUser>> getAll() {
 		return new SuccessDataResult<List<EmployerUser>>(this.employerUserDao.findAll());
-
 	}
+
+	@Override
+	public Result add(EmployerUser employerUser) {
+		this.employerUserDao.save(employerUser);
+		return new SuccessResult("İşveren eklendi.");
+	}
+
+	@Override
+	public DataResult<EmployerUser> findEmployerByCompanyName(String companyName) {
+		return new SuccessDataResult<EmployerUser>(this.employerUserDao.findEmployerByCompanyName(companyName));
+	}
+
+	@Override
+	public DataResult<EmployerUser> getEmployerById(int id) {
+		return new SuccessDataResult<EmployerUser>(this.employerUserDao.getEmployerById(id));
+	}
+
 }

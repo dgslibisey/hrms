@@ -1,5 +1,7 @@
 package day6.hrms.core.utilities.adapters;
 
+import java.util.Date;
+
 public interface ValidationService {
-	boolean validateByMernis(long nationalId, String firstName, String lastName, int yearOfBirth);
+	boolean validateByMernis(String nationalId, String firstName, String lastName, Date dateOfBirth);
 }

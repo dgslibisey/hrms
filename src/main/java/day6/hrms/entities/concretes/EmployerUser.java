@@ -3,6 +3,8 @@ package day6.hrms.entities.concretes;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -23,8 +25,10 @@ import lombok.NoArgsConstructor;
 
 public class EmployerUser extends User {
 	
-//	@Column(name="user_id")
-//	private int id;
+	@Id
+	@GeneratedValue
+	@Column(name="user_id")
+	private int id;
 
 
 	@Column(name= "company_name")

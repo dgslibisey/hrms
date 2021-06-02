@@ -6,7 +6,7 @@ import day6.hrms.entities.concretes.EmployerUser;
 
 public interface EmployerUserDao extends JpaRepository<EmployerUser, Integer> {
 
-	EmployerUser findByName(String firstName);
-	EmployerUser findByemail(String mail);
-	//Mail doğrulama için arama yapabilme
+	EmployerUser findEmployerByCompanyName(String companyName);
+	EmployerUser getEmployerById(int id);
+	
 }

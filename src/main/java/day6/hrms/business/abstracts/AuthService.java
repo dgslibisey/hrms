@@ -6,10 +6,8 @@ import day6.hrms.entities.concretes.JobSeekerUser;
 
 public interface AuthService {
 
-	public Result registerEmployerUser(EmployerUser employerUser, String confirmPassword) {
-		return null;
-	}
-	public Result registerJobSeekerUser(JobSeekerUser jobseekerUsers, String confirmPassword) {
-		return null;
-	}
+	Result registerEmployerUser(EmployerUser employerUser, String confirmPassword);
+
+	Result registerJobSeekerUser(JobSeekerUser jobSeekerUsers, String confirmPassword);
+
 }

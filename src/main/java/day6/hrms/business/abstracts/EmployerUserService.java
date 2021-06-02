@@ -8,7 +8,8 @@ import day6.hrms.entities.concretes.EmployerUser;
 
 public interface EmployerUserService {
 
-	
 	DataResult<List<EmployerUser>> getAll();
 	Result add(EmployerUser employerUser);
+	DataResult<EmployerUser> findEmployerByCompanyName(String companyName);
+	DataResult<EmployerUser> getEmployerById(int id);
 }
