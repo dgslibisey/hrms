@@ -36,28 +36,5 @@ public class JobSeekerUser extends User {
 	@Column(name = "is_verified", columnDefinition = "boolean default false")
 	private boolean isVerified = false;
 
-	public String getLastName() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+};
 
-	public String getPassword() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	public String getEmail() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	public Date getDateOfBirth() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	public String getNationalId() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-}

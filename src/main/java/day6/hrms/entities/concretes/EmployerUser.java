@@ -1,6 +1,5 @@
 package day6.hrms.entities.concretes;
 
-import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -39,30 +38,5 @@ public class EmployerUser extends User {
 	
 	@Column(name = "is_verified", columnDefinition = "boolean default false")
 	private boolean isVerified = false;
-
-	public String getEmail() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	public String getPassword() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	public String getWebsite() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	public String getPhoneNumber() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	public  String getCompanyName() {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 }

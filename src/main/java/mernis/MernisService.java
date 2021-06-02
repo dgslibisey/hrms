@@ -1,8 +1,8 @@
 package mernis;
 
 public class MernisService {
-	public boolean ValidateByPersonalInfo(long nationalId, String firstName, String lastName, int yearOfBirth) {
-		System.out.println(firstName + " " + lastName + " is valid person.");
+	public boolean ValidateByPersonalInfo(String nationalId, String firstName, String lastName, int dateOfBirth) {
+		System.out.println(firstName + " " + lastName + " için mernis doğrulaması gerçekleştirildi.");
 		return true;
 	}
 }

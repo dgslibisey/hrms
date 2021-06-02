@@ -27,9 +27,6 @@ public class JobAds {
     @Column(name="job_id")
 	private int id;
     
-    @Column(name="job_name")
-	private String jobName;
-    
     @Column(name="job_definition")
 	private String jobDefinition;
     
@@ -47,6 +44,9 @@ public class JobAds {
     
     @Column(name="employer_id")
 	private int employerId;
+    
+    @Column(name="city_id")
+	private int cityId;
     
     @Column(name="is_activated")
 	private boolean isActivated;

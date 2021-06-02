@@ -10,7 +10,7 @@ public interface UserService {
 
 	Result add(User user);
 	DataResult<List<User>> getAll();
-	DataResult<User> getUserByEmail(String email);
+	DataResult<User> findByEmail(String email);
 
 	
 }

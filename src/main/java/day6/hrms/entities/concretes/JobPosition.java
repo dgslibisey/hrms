@@ -37,9 +37,4 @@ public class JobPosition {
 		@OneToMany(mappedBy = "jobPosition")
 		private List<JobAds> jobAds;
 
-		public String getName() {
-			// TODO Auto-generated method stub
-			return null;
-		}
-
 }

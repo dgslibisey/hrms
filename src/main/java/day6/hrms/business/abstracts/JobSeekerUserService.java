@@ -9,7 +9,10 @@ import day6.hrms.entities.concretes.JobSeekerUser;
 public interface JobSeekerUserService {
 
 	DataResult<List<JobSeekerUser>> getAll();
-	DataResult<JobSeekerUser> getJobseekerByNationalId(String nationalId);
 	Result add(JobSeekerUser jobSeekerUser);
-	
+	DataResult<JobSeekerUser> findJobSeekerByFirstName(String firstName);
+	DataResult<JobSeekerUser> findJobSeekerByLastName(String lastName);
+	DataResult<JobSeekerUser> findJobSeekerByNationalId(String nationalId);
+	DataResult<JobSeekerUser> findJobSeekerByEmail(String email);
+	DataResult<JobSeekerUser> findJobSeekerByVerify(Boolean isVerified);
 }

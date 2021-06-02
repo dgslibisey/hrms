@@ -28,10 +28,10 @@ public class JobPositionManager implements JobPositionService{
 	@Override
 	public Result add(JobPosition jobPosition) {
 		if(getJobByName(jobPosition.getName()).getData() != null){
-			return new ErrorResult(jobPosition.getName() + " already exists");
+			return new ErrorResult(jobPosition.getName() + " iş pozisyonu sistemde kayıtlı");
 		}
 		this.jobPositionDao.save(jobPosition);
-	    return new SuccessResult("Job position has been added.");
+	    return new SuccessResult("İş pozisyonu eklendi.");
 	}
 
 
@@ -41,7 +41,6 @@ public class JobPositionManager implements JobPositionService{
 	}
 
 	public DataResult<JobPosition> getJobByName(String name) {
-		
 		return new SuccessDataResult<JobPosition>(this.jobPositionDao.getJobByName(name));
 	}
 

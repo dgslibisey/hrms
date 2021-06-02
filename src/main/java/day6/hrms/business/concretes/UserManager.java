@@ -14,36 +14,32 @@ import day6.hrms.dataAccess.abstracts.UserDao;
 import day6.hrms.entities.concretes.User;
 
 
+
 @Service
 public class UserManager implements UserService {
 
-	private UserDao userDao;
-	
-	
 	@Autowired
 	public UserManager(UserDao userDao) {
 		super();
 		this.userDao = userDao;
 	}
 
-
-	@Override
-	public DataResult<List<User>> getAll(){
-		return new SuccessDataResult<List<User>>
-		(this.userDao.findAll(), false, "Data listelendi");
-	}
-
-
-	@Override
-	public DataResult<User> getUserByEmail(String email) {
-
-		return new SuccessDataResult<User>(this.userDao.findByEmail(email));
-	}
-
+	private UserDao userDao;
 
 	@Override
 	public Result add(User user) {
 		this.userDao.save(user);
-		return new SuccessResult("Kullanıcı eklendi.");
+		return new SuccessResult("Kullanıcı eklendi");
+	}
+
+	@Override
+	public DataResult<List<User>> getAll() {
+		return new SuccessDataResult<List<User>>(this.userDao.findAll(), true, "Kullanıcılar listelendi");
+		
+	}
+
+	@Override
+	public DataResult<User> findByEmail(String email) {
+		return new SuccessDataResult<User>(this.userDao.findByEmail(email), true, "Kullanıcı listelendi");
 	}
 }

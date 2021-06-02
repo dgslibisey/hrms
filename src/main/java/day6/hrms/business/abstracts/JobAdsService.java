@@ -8,13 +8,12 @@ import day6.hrms.entities.concretes.JobAds;
 
 public interface JobAdsService {
 
-	Result add(JobAds JobAds);
-	Result update(JobAds JobAds);
+	Result add(JobAds jobAds);
 	Result delete(int id);
 	Result changeOpenToClose(int id);
 	DataResult<JobAds> getById(int id);	
 	DataResult<List<JobAds>> getAll();
 	DataResult<List<JobAds>> getAllOpenJobAdsList();
 	DataResult<List<JobAds>> findAllByOrderByPublishedAt();
-	DataResult<List<JobAds>> getAllOpenJobAdvertByEmployerUser(int id);
+	DataResult<List<JobAds>> getAllOpenJobAdsByEmployerUser(int id);
 }
